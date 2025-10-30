@@ -1,0 +1,45 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin: 0;
+    background-color: #000;
+  }
+  
+  div {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow:
+      0 0 20px #fff,
+        20px 0 80px #779FBA,
+        -20px 0 80px #88E3D6,
+        inset 0 0 50px #fff,
+        inset -50px 0 80px #FAE5AE,
+        inset 50px 0 80px #72BAB4,
+        inset -50px 0 300px #68CEB8,
+        inset 50px 0 300px #509D97;
+    animation: pulsate 6s linear infinite;
+  }
+  
+  @keyframes pulsate {
+    50% {
+      box-shadow:
+        0 0 20px #fff,
+        20px 0 80px #779FBA,
+        -20px 0 80px #88E3D6,
+        inset 0 0 50px #fff,
+        inset -50px 0 80px #FAE5AE,
+        inset 50px 0 80px #72BAB4,
+        inset -50px 0 300px #68CEB8,
+        inset 50px 0 300px #509D97;
+    }
+  }
