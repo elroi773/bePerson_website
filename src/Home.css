@@ -25,122 +25,60 @@ body {
   text-align: center;
 }
 
-/* ── ORB ───────────────────────────────────────────── */
+/* ✅ 전역 div가 아니라, 장식용 .orb 에만 스타일 적용 */
 .orb {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    z-index: -1;
-  
-    /* 기본 글로우 */
-    box-shadow:
-      0 0 24px rgba(255,255,255,0.65),
-      0 0 120px rgba(120, 220, 210, 0.45),
-      0 0 220px rgba(120, 160, 255, 0.35);
-  
-    /* 부드러운 숨쉬기 + 글로우 변화 */
-    animation:
-      breathe 6.5s ease-in-out infinite,
-      pulse   7.2s ease-in-out infinite;
-  }
-  
-  /* 내부 흐르는 빛의 띠 */
-  .orb::before {
-    content: "";
-    position: absolute;
-    inset: -22%;
-    border-radius: inherit;
-  
-    /* 회전하는 콘익 그라디언트(빛 띠) */
-    background: conic-gradient(
-      from 0deg,
-      rgba(255,255,255,0.0) 0%,
-      rgba(255,255,255,0.25) 12%,
-      rgba(136,227,214,0.25) 24%,
-      rgba(119,159,186,0.25) 36%,
-      rgba(255,255,255,0.0) 48%,
-      rgba(255,245,200,0.28) 60%,
-      rgba(114,186,180,0.28) 72%,
-      rgba(80,157,151,0.26) 84%,
-      rgba(255,255,255,0.0) 100%
-    );
-  
-    filter: blur(26px);
-    mix-blend-mode: screen;
-    opacity: 0.9;
-  
-    /* 끊김 없는 회전 + 미세한 일렁임 */
-    animation:
-      spin 18s linear infinite,
-      shimmer 3.2s ease-in-out infinite;
-    will-change: transform, opacity, filter;
-  }
-  
-  /* 중심부에 부드러운 광원 */
-  .orb::after {
-    content: "";
-    position: absolute;
-    inset: 18%;
-    border-radius: inherit;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255,255,255,0.85) 0%,
-      rgba(255,255,255,0.55) 20%,
-      rgba(136,227,214,0.30) 45%,
-      rgba(0,0,0,0) 70%
-    );
-    filter: blur(14px);
-    mix-blend-mode: screen;
-    animation: glowFloat 8.5s ease-in-out infinite;
-  }
-  
-  /* ── KEYFRAMES ────────────────────────────────────── */
-  @keyframes breathe {
-    0%, 100% {
-      transform: scale(0.98);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: -1;              /* 텍스트/버튼 뒤로 보냄 */
+  box-shadow:
+    0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
+    inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
+    inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
+    animation: pulsate 12s cubic-bezier(.35,.02,.22,1) infinite both;
+}
+@keyframes pulsate {
+    /* 0%와 100%를 동일하게 → 루프 이음새 매끈하게 */
+    0%,
+    100% {
       box-shadow:
-        0 0 24px rgba(255,255,255,0.65),
-        0 0 120px rgba(120, 220, 210, 0.40),
-        0 0 220px rgba(120, 160, 255, 0.32);
-      filter: saturate(1) brightness(1);
+        /* 외곽(고정 순서 유지) */
+        0 0 40px #fff,
+        40px 0 160px #779fba,
+        -40px 0 160px #88e3d6,
+        /* 내부(inset도 같은 순서 유지) */
+        inset 0 0 100px #fff,
+        inset -100px 0 160px #fae5ae,
+        inset 100px 0 160px #72bab4,
+        inset -100px 0 600px #68ceb8,
+        inset 100px 0 600px #509d97;
     }
+  
     50% {
-      transform: scale(1.02);
       box-shadow:
-        0 0 36px rgba(255,255,255,0.82),
-        0 0 160px rgba(120, 220, 210, 0.55),
-        0 0 300px rgba(120, 160, 255, 0.42);
-      filter: saturate(1.1) brightness(1.05);
+        0 0 20px #fff,
+        20px 0 80px #779fba,
+        -20px 0 80px #88e3d6,
+        inset 0 0 50px #fff,
+        inset -50px 0 80px #fae5ae,
+        inset 50px 0 80px #72bab4,
+        inset -50px 0 300px #68ceb8,
+        inset 50px 0 300px #509d97;
     }
-  }
   
-  @keyframes pulse {
-    0%, 100% { filter: drop-shadow(0 0 22px rgba(255,255,255,0.35)); }
-    50%      { filter: drop-shadow(0 0 38px rgba(255,255,255,0.55)); }
-  }
-  
-  @keyframes spin {
-    from { transform: rotate(0deg) scale(1.02); }
-    to   { transform: rotate(360deg) scale(1.02); }
-  }
-  
-  @keyframes shimmer {
-    0%, 100% { opacity: 0.85; filter: blur(24px); }
-    50%      { opacity: 1;    filter: blur(28px); }
-  }
-  
-  @keyframes glowFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50%      { transform: translateY(-4px) scale(1.015); }
-  }
-  
-  /* 접근성: 모션 줄이기 설정 시 애니메이션 최소화 */
-  @media (prefers-reduced-motion: reduce) {
-    .orb, .orb::before, .orb::after {
-      animation: none;
+    80% {
+      box-shadow:
+        0 0 24px #fff,
+        28px 0 120px #779fba,
+        -28px 0 120px #88e3d6,
+        inset 0 0 70px #fff,
+        inset -70px 0 120px #fae5ae,
+        inset 70px 0 120px #72bab4,
+        inset -70px 0 400px #68ceb8,
+        inset 70px 0 400px #509d97;
     }
   }
   
