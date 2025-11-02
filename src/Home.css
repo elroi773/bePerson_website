@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin: 0;
+  background-color: #000;
+}
+
+div {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
+    inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
+    inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
+  animation: pulsate 6s linear infinite;
+}
+
+@keyframes pulsate {
+  50% {
+    box-shadow: 0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
+      inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
+      inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
+  }
+  80% {
+    box-shadow: 20px 0 80px #779fba, 0 0 20px #fff, -20px 0 80px #88e3d6,
+      inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
+      inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
+  }
+  100% {
+    box-shadow: 0 0 40px #fff, -40px 0 160px #88e3d6, 40px 0 160px #779fba,
+      inset 100px 0 160px #72bab4, inset 0 0 100px #fff,
+      inset -100px 0 600px #68ceb8, inset -100px 0 160px #fae5ae,
+      inset 100px 0 600px #509d97;
+  }
+}
