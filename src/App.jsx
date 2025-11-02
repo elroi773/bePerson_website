@@ -1,6 +1,7 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Home";
+import Home from "./Home.jsx";
+import Index from "./Index.jsx";
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/index" element={<Index/>} />
       </Routes>
     </Router>
   );
