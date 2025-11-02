@@ -1,13 +1,8 @@
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html,
-body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   display: grid;
@@ -15,33 +10,148 @@ body {
   justify-items: center;
   margin: 0;
   background-color: #000;
+  color: #fff;              /* ✅ 텍스트가 검은 배경에서 보이도록 */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
-div {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  box-shadow: 0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
-    inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
-    inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
-  animation: pulsate 6s linear infinite;
+/* 내용 래퍼 */
+.wrap {
+  position: relative;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
 }
 
-@keyframes pulsate {
-  50% {
-    box-shadow: 0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
-      inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
-      inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
+/* ── ORB ───────────────────────────────────────────── */
+.orb {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    z-index: -1;
+  
+    /* 기본 글로우 */
+    box-shadow:
+      0 0 24px rgba(255,255,255,0.65),
+      0 0 120px rgba(120, 220, 210, 0.45),
+      0 0 220px rgba(120, 160, 255, 0.35);
+  
+    /* 부드러운 숨쉬기 + 글로우 변화 */
+    animation:
+      breathe 6.5s ease-in-out infinite,
+      pulse   7.2s ease-in-out infinite;
   }
-  80% {
-    box-shadow: 20px 0 80px #779fba, 0 0 20px #fff, -20px 0 80px #88e3d6,
-      inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
-      inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
+  
+  /* 내부 흐르는 빛의 띠 */
+  .orb::before {
+    content: "";
+    position: absolute;
+    inset: -22%;
+    border-radius: inherit;
+  
+    /* 회전하는 콘익 그라디언트(빛 띠) */
+    background: conic-gradient(
+      from 0deg,
+      rgba(255,255,255,0.0) 0%,
+      rgba(255,255,255,0.25) 12%,
+      rgba(136,227,214,0.25) 24%,
+      rgba(119,159,186,0.25) 36%,
+      rgba(255,255,255,0.0) 48%,
+      rgba(255,245,200,0.28) 60%,
+      rgba(114,186,180,0.28) 72%,
+      rgba(80,157,151,0.26) 84%,
+      rgba(255,255,255,0.0) 100%
+    );
+  
+    filter: blur(26px);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  
+    /* 끊김 없는 회전 + 미세한 일렁임 */
+    animation:
+      spin 18s linear infinite,
+      shimmer 3.2s ease-in-out infinite;
+    will-change: transform, opacity, filter;
   }
-  100% {
-    box-shadow: 0 0 40px #fff, -40px 0 160px #88e3d6, 40px 0 160px #779fba,
-      inset 100px 0 160px #72bab4, inset 0 0 100px #fff,
-      inset -100px 0 600px #68ceb8, inset -100px 0 160px #fae5ae,
-      inset 100px 0 600px #509d97;
+  
+  /* 중심부에 부드러운 광원 */
+  .orb::after {
+    content: "";
+    position: absolute;
+    inset: 18%;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,0.85) 0%,
+      rgba(255,255,255,0.55) 20%,
+      rgba(136,227,214,0.30) 45%,
+      rgba(0,0,0,0) 70%
+    );
+    filter: blur(14px);
+    mix-blend-mode: screen;
+    animation: glowFloat 8.5s ease-in-out infinite;
   }
+  
+  /* ── KEYFRAMES ────────────────────────────────────── */
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(0.98);
+      box-shadow:
+        0 0 24px rgba(255,255,255,0.65),
+        0 0 120px rgba(120, 220, 210, 0.40),
+        0 0 220px rgba(120, 160, 255, 0.32);
+      filter: saturate(1) brightness(1);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow:
+        0 0 36px rgba(255,255,255,0.82),
+        0 0 160px rgba(120, 220, 210, 0.55),
+        0 0 300px rgba(120, 160, 255, 0.42);
+      filter: saturate(1.1) brightness(1.05);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { filter: drop-shadow(0 0 22px rgba(255,255,255,0.35)); }
+    50%      { filter: drop-shadow(0 0 38px rgba(255,255,255,0.55)); }
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg) scale(1.02); }
+    to   { transform: rotate(360deg) scale(1.02); }
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.85; filter: blur(24px); }
+    50%      { opacity: 1;    filter: blur(28px); }
+  }
+  
+  @keyframes glowFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-4px) scale(1.015); }
+  }
+  
+  /* 접근성: 모션 줄이기 설정 시 애니메이션 최소화 */
+  @media (prefers-reduced-motion: reduce) {
+    .orb, .orb::before, .orb::after {
+      animation: none;
+    }
+  }
+  
+/* ✅ 버튼 확실히 보이도록 */
+.cta {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
 }
+.cta:hover { opacity: 0.9; }
