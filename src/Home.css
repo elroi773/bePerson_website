@@ -41,44 +41,40 @@ body {
     animation: pulsate 12s cubic-bezier(.35,.02,.22,1) infinite both;
 }
 @keyframes pulsate {
-    /* 0%와 100%를 동일하게 → 루프 이음새 매끈하게 */
-    0%,
-    100% {
+    0%, 100% {
       box-shadow:
-        /* 외곽(고정 순서 유지) */
-        0 0 40px #fff,
-        40px 0 160px #779fba,
-        -40px 0 160px #88e3d6,
-        /* 내부(inset도 같은 순서 유지) */
-        inset 0 0 100px #fff,
-        inset -100px 0 160px #fae5ae,
-        inset 100px 0 160px #72bab4,
-        inset -100px 0 600px #68ceb8,
-        inset 100px 0 600px #509d97;
+        0 0 26px #fff,
+        42px 0 180px rgba(119,159,186,0.90),    /* 파랑 강조 */
+        -42px 0 180px rgba(136,227,214,0.35),   /* 민트 억제 */
+        inset 0 0 110px rgba(255,255,255,0.75),
+        inset -110px 0 220px rgba(250,229,174,0.30),
+        inset 110px 0 220px rgba(114,186,180,0.30),
+        inset -110px 0 640px rgba(104,206,184,0.28),
+        inset 110px 0 640px rgba(80,157,151,0.28);
     }
   
-    50% {
+    40% {
       box-shadow:
         0 0 20px #fff,
-        20px 0 80px #779fba,
-        -20px 0 80px #88e3d6,
-        inset 0 0 50px #fff,
-        inset -50px 0 80px #fae5ae,
-        inset 50px 0 80px #72bab4,
-        inset -50px 0 300px #68ceb8,
-        inset 50px 0 300px #509d97;
+        28px 0 120px rgba(119,159,186,0.45),
+        -28px 0 120px rgba(136,227,214,0.90),   /* 민트 강조 구간 */
+        inset 0 0 70px rgba(255,255,255,0.55),
+        inset -70px 0 150px rgba(250,229,174,0.40),
+        inset 70px 0 150px rgba(114,186,180,0.45),
+        inset -70px 0 420px rgba(104,206,184,0.38),
+        inset 70px 0 420px rgba(80,157,151,0.38);
     }
   
-    80% {
+    70% {
       box-shadow:
-        0 0 24px #fff,
-        28px 0 120px #779fba,
-        -28px 0 120px #88e3d6,
-        inset 0 0 70px #fff,
-        inset -70px 0 120px #fae5ae,
-        inset 70px 0 120px #72bab4,
-        inset -70px 0 400px #68ceb8,
-        inset 70px 0 400px #509d97;
+        0 0 34px #fff,
+        38px 0 160px rgba(119,159,186,0.65),
+        -38px 0 160px rgba(136,227,214,0.65),
+        inset 0 0 95px rgba(255,255,255,0.65),
+        inset -95px 0 200px rgba(250,229,174,0.55),  /* 옐로 강조 */
+        inset 95px 0 200px rgba(114,186,180,0.38),
+        inset -95px 0 520px rgba(104,206,184,0.32),
+        inset 95px 0 520px rgba(80,157,151,0.32);
     }
   }
   
