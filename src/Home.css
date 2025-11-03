@@ -1,55 +1,106 @@
 @font-face {
-    font-family: 'SeoulNotice';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2505-1@1.0/SeoulAlrimTTF-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2")
+    format("woff2");
+  font-weight: 100;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'SeoulNotice';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2505-1@1.0/SeoulAlrimTTF-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2")
+    format("woff2");
+  font-weight: 200;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'SeoulNotice';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2505-1@1.0/SeoulAlrimTTF-ExtraBold.woff2') format('woff2');
-    font-weight: 800;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'SeoulNotice';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2505-1@1.0/SeoulAlrimTTF-Heavy.woff2') format('woff2');
-    font-weight: 900;
-    font-display: swap;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
 }
 
-h1{
-    font-family: 'SeoulNotice';
-    font-weight: 800;
-    margin-top: 10px;
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-display: swap;
 }
 
-p{
-    font-family: 'SeoulNotice';
-    font-weight: 500;
-    padding-bottom: 10px;
-    color: #ffffff86;
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-display: swap;
 }
 
-button{
-    font-family: 'SeoulNotice';
-    font-weight: 700;
-    color: #68ceb8;
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+h1 {
+  font-family: "Pretendard";
+
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+p {
+  font-family: "Pretendard";
+
+  font-weight: 500;
+  padding-bottom: 10px;
+  color: #ffffff86;
+}
+
+button {
+  font-family: "Pretendard";
+
+  font-weight: 700;
+  color: #68ceb8;
 }
 
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   display: grid;
@@ -57,7 +108,7 @@ body {
   justify-items: center;
   margin: 0;
   background-color: #000;
-  color: #fff;              /* ✅ 텍스트가 검은 배경에서 보이도록 */
+  color: #fff; /* ✅ 텍스트가 검은 배경에서 보이도록 */
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
@@ -80,51 +131,45 @@ body {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  z-index: -1;              /* 텍스트/버튼 뒤로 보냄 */
-  box-shadow:
-    0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
+  z-index: -1; /* 텍스트/버튼 뒤로 보냄 */
+  box-shadow: 0 0 20px #fff, 20px 0 80px #779fba, -20px 0 80px #88e3d6,
     inset 0 0 50px #fff, inset -50px 0 80px #fae5ae, inset 50px 0 80px #72bab4,
     inset -50px 0 300px #68ceb8, inset 50px 0 300px #509d97;
-    animation: pulsate 12s cubic-bezier(.35,.02,.22,1) infinite both;
+  animation: pulsate 12s cubic-bezier(0.35, 0.02, 0.22, 1) infinite both;
 }
 @keyframes pulsate {
-    0%, 100% {
-      box-shadow:
-        0 0 26px #fff,
-        42px 0 180px rgba(119,159,186,0.90),    /* 파랑 강조 */
-        -42px 0 180px rgba(136,227,214,0.35),   /* 민트 억제 */
-        inset 0 0 110px rgba(255,255,255,0.75),
-        inset -110px 0 220px rgba(250,229,174,0.30),
-        inset 110px 0 220px rgba(114,186,180,0.30),
-        inset -110px 0 640px rgba(104,206,184,0.28),
-        inset 110px 0 640px rgba(80,157,151,0.28);
-    }
-  
-    40% {
-      box-shadow:
-        0 0 20px #fff,
-        28px 0 120px rgba(119,159,186,0.45),
-        -28px 0 120px rgba(136,227,214,0.90),   /* 민트 강조 구간 */
-        inset 0 0 70px rgba(255,255,255,0.55),
-        inset -70px 0 150px rgba(250,229,174,0.40),
-        inset 70px 0 150px rgba(114,186,180,0.45),
-        inset -70px 0 420px rgba(104,206,184,0.38),
-        inset 70px 0 420px rgba(80,157,151,0.38);
-    }
-  
-    70% {
-      box-shadow:
-        0 0 34px #fff,
-        38px 0 160px rgba(119,159,186,0.65),
-        -38px 0 160px rgba(136,227,214,0.65),
-        inset 0 0 95px rgba(255,255,255,0.65),
-        inset -95px 0 200px rgba(250,229,174,0.55),  /* 옐로 강조 */
-        inset 95px 0 200px rgba(114,186,180,0.38),
-        inset -95px 0 520px rgba(104,206,184,0.32),
-        inset 95px 0 520px rgba(80,157,151,0.32);
-    }
+  0%,
+  100% {
+    box-shadow: 0 0 26px #fff, 42px 0 180px rgba(119, 159, 186, 0.9),
+      /* 파랑 강조 */ -42px 0 180px rgba(136, 227, 214, 0.35),
+      /* 민트 억제 */ inset 0 0 110px rgba(255, 255, 255, 0.75),
+      inset -110px 0 220px rgba(250, 229, 174, 0.3),
+      inset 110px 0 220px rgba(114, 186, 180, 0.3),
+      inset -110px 0 640px rgba(104, 206, 184, 0.28),
+      inset 110px 0 640px rgba(80, 157, 151, 0.28);
   }
-  
+
+  40% {
+    box-shadow: 0 0 20px #fff, 28px 0 120px rgba(119, 159, 186, 0.45),
+      -28px 0 120px rgba(136, 227, 214, 0.9),
+      /* 민트 강조 구간 */ inset 0 0 70px rgba(255, 255, 255, 0.55),
+      inset -70px 0 150px rgba(250, 229, 174, 0.4),
+      inset 70px 0 150px rgba(114, 186, 180, 0.45),
+      inset -70px 0 420px rgba(104, 206, 184, 0.38),
+      inset 70px 0 420px rgba(80, 157, 151, 0.38);
+  }
+
+  70% {
+    box-shadow: 0 0 34px #fff, 38px 0 160px rgba(119, 159, 186, 0.65),
+      -38px 0 160px rgba(136, 227, 214, 0.65),
+      inset 0 0 95px rgba(255, 255, 255, 0.65),
+      inset -95px 0 200px rgba(250, 229, 174, 0.55),
+      /* 옐로 강조 */ inset 95px 0 200px rgba(114, 186, 180, 0.38),
+      inset -95px 0 520px rgba(104, 206, 184, 0.32),
+      inset 95px 0 520px rgba(80, 157, 151, 0.32);
+  }
+}
+
 /* ✅ 버튼 확실히 보이도록 */
 .cta {
   background: #fff;
@@ -135,4 +180,6 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
-.cta:hover { opacity: 0.9; }
+.cta:hover {
+  opacity: 0.9;
+}
