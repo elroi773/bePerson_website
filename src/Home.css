@@ -106,8 +106,8 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
-  margin: 0;
   background-color: #000;
+  margin: 0;
   color: #fff; /* ✅ 텍스트가 검은 배경에서 보이도록 */
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
